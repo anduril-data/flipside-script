@@ -33,16 +33,20 @@ def main():
     table = Table(api_key, base_id, table_name)
 
     for record in table.all():
-        program_id = record['fields']['Program ID']
-        user_count = get_counts(program_id)
+        print(record)
+        try:
+            program_id = record['fields']['Program ID']
+            user_count = get_counts(program_id)
 
-        data = {
-            "Tx Count": user_count["tx"],
-            "User Count": user_count["wallet"]
-        }
+            data = {
+                "Tx Count": user_count["tx"],
+                "User Count": user_count["wallet"]
+            }
 
-        table_id = record['id']
-        table.update(table_id, data)
+            table_id = record['id']
+            table.update(table_id, data)
+        except:
+            continue
 
 # Run the main function once at the beginning
 main()
