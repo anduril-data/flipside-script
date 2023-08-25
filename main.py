@@ -26,9 +26,9 @@ def get_counts(program_id):
     return {"tx": data[0]["total_transactions"], "wallet": data[0]["wallets"]}
 
 def main():
-    base_id = 'app0Pze3RcxRYtMp6'
-    api_key = 'patDhtTDYJsM7B7J7.650666c0ee4f761331601ae9afaea19a01eae41f16d2b53396d5894aaaeeddbf'
-    table_name = 'tbldPLOYbK8Q6kdA9'
+    base_id = 'appikR566Vy7HkZlx'
+    api_key = 'patTDS12MBTJ9jsnJ.44153b8673259c9f9ccfc84d21c4e7b60e8fef06ad5c924c20414441dc5354fa'
+    table_name = 'tblXXJwTt9qiBpV6D'
 
     table = Table(api_key, base_id, table_name)
 
@@ -39,8 +39,8 @@ def main():
             user_count = get_counts(program_id)
 
             data = {
-                "Tx Count": user_count["tx"],
-                "User Count": user_count["wallet"]
+                "Txn Count": user_count["tx"],
+                "Wallet Count": user_count["wallet"]
             }
 
             table_id = record['id']
